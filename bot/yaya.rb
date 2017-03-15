@@ -32,7 +32,8 @@ class Yaya < SlackRubyBot::Bot
             text: "#{code_url} こちらのコードをコマンド[#{code.name}]として記憶しました！",
             username: code.character.name,
             icon_url: code.character.icon_url,
-            unfurl_links: false
+            unfurl_links: false,
+            link_names: true
           )
         elsif webhook.present?
           webhook.waiting = false
@@ -45,7 +46,8 @@ class Yaya < SlackRubyBot::Bot
             text: "#{code_url} こちらのコードをWebhook[#{webhook.name}]として記憶しました！\nエンドポイントは'POST: #{File.join(ROOT_URL, 'webhooks', webhook.uid)} 'です。",
             username: webhook.character.name,
             icon_url: webhook.character.icon_url,
-            unfurl_links: false
+            unfurl_links: false,
+            link_names: true
           )
         end
       end
